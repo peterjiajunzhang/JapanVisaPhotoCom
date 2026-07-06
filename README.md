@@ -1,14 +1,14 @@
 # JapanVisaPhotoCom — marketing site
 
-GitHub Pages (pending first push): **https://peterjiajunzhang.github.io/JapanVisaPhotoCom/**
+Live site: **https://japan.visaphoto1tap.com/**
 
 | Path | Purpose |
 |------|---------|
 | `index.html` | Landing; App Store CTA is a **"Coming soon"** badge |
 | `privacy.html` | Privacy policy (linked from App Store Connect) |
 | `sitemap.xml` / `robots.txt` | SEO |
-| `marketing/xiaohongshu-japan/` | Xiaohongshu post previews & export scripts |
-| `marketing/appstore-japan/` | App Store screenshot campaign previews & export scripts |
+| `VisaPhotoApps/Marketing/Japan/xiaohongshu/` | Xiaohongshu post previews & export scripts |
+| `VisaPhotoApps/Marketing/Japan/appstore/` | App Store screenshot campaign previews & export scripts |
 | `screenshots/` | Real device screenshots — **does not exist yet** |
 | `demos/` | Real before/after export examples — **does not exist yet** |
 
