@@ -9,10 +9,10 @@ Live site: **https://japan.visaphoto1tap.com/**
 | `sitemap.xml` / `robots.txt` | SEO |
 | `VisaPhotoApps/Marketing/Japan/xiaohongshu/` | Xiaohongshu post previews & export scripts |
 | `VisaPhotoApps/Marketing/Japan/appstore/` | App Store screenshot campaign previews & export scripts |
-| `screenshots/` | Real device screenshots — **does not exist yet** |
-| `demos/` | Real before/after export examples — **does not exist yet** |
+| `screenshots/` | Real device screenshots — **5 of 6 captured** (missing `05-exported.png`) |
+| `demos/` | Real before/after export pairs — all 6 captured |
 
-**Status:** the iOS app has not shipped yet (no Apple ID, no screenshots, no demo photos). Built with illustrated mockups/placeholders throughout, same pattern as `SchengenVisaPhotoCom` before its screenshots arrived.
+**Status:** real screenshots and demo pairs are mostly in. `index.html` has a real `#demos` wall and a real `#app` screenshot grid (currently 5 screens: home, checklist, paywall, saved photos, languages). **Still needed: `05-exported.png`** (the unlocked-result screen with Share/Rate/Review/Download/Start over) — drop it into `screenshots/` and add its `<figure>` back into `index.html`'s `#app` grid + the App Store campaign slide that references it. Still pending: Apple ID / App Store Connect record.
 
 ## ⚠️ Lower confidence than our other apps — read before editing copy
 
@@ -26,9 +26,12 @@ Per `VisaPhotoApps/docs/japan-visa-photo-spec.md`: **every official `.go.jp` dom
 ## Before submitting to App Store Connect
 
 1. Once `JapanVisaPhoto/Info.plist`'s `AppStoreAppleID` is filled in, update the CTA to a real App Store link.
-2. Capture real device screenshots into `screenshots/` (473×1024): `01-home.png`, `02-checklist.png`, `04-paywall.png`, `05-exported.png`, `06-saved-photos.png`, `07-languages.png`. Since Japan supports print-layout (like the US app), also consider a screenshot of the print-sheet view.
-3. Capture real before/after export pairs into `demos/`.
-4. Once those exist: replace `.mock-phone` illustrations with real screenshots, add a `#demos` wall, export the App Store campaign, rebuild the xiaohongshu deck.
+2. Capture `05-exported.png` (see Status above) — the last missing canonical screenshot. Since Japan supports print-layout (like the US app), also consider a screenshot of the print-sheet view.
+3. Re-run exports after any new screenshot lands:
+   ```bash
+   cd VisaPhotoApps/Marketing/Japan/appstore && npm run export
+   cd VisaPhotoApps/Marketing/Japan/xiaohongshu && npm run export
+   ```
 
 **Product facts baked into this site** (source: `VisaPhotoApps/docs/japan-visa-photo-spec.md`):
 - Paper-first visa photo (unlike China/Schengen/India/Canada) — **print-layout support is enabled** (`supportsPrintLayout = true`), same feature as the US app.
