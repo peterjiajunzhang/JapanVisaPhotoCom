@@ -9,10 +9,10 @@ Live site: **https://japan.visaphoto1tap.com/**
 | `sitemap.xml` / `robots.txt` | SEO |
 | `VisaPhotoApps/Marketing/Japan/xiaohongshu/` | Xiaohongshu post previews & export scripts |
 | `VisaPhotoApps/Marketing/Japan/appstore/` | App Store screenshot campaign previews & export scripts |
-| `screenshots/` | Real device screenshots — **5 of 6 captured** (missing `05-exported.png`) |
+| `screenshots/` | Real device screenshots — **all 6 captured** |
 | `demos/` | Real before/after export pairs — all 6 captured |
 
-**Status:** real screenshots and demo pairs are mostly in. `index.html` has a real `#demos` wall and a real `#app` screenshot grid (currently 5 screens: home, checklist, paywall, saved photos, languages). **Still needed: `05-exported.png`** (the unlocked-result screen with Share/Rate/Review/Download/Start over) — drop it into `screenshots/` and add its `<figure>` back into `index.html`'s `#app` grid + the App Store campaign slide that references it. Still pending: Apple ID / App Store Connect record.
+**Status:** all real screenshots and demo pairs are in. `index.html` has a real `#demos` wall and a full 6-screen real `#app` screenshot grid. Still pending: Apple ID / App Store Connect record (CTA still shows "Coming soon").
 
 ## ⚠️ Lower confidence than our other apps — read before editing copy
 
@@ -26,8 +26,8 @@ Per `VisaPhotoApps/docs/japan-visa-photo-spec.md`: **every official `.go.jp` dom
 ## Before submitting to App Store Connect
 
 1. Once `JapanVisaPhoto/Info.plist`'s `AppStoreAppleID` is filled in, update the CTA to a real App Store link.
-2. Capture `05-exported.png` (see Status above) — the last missing canonical screenshot. Since Japan supports print-layout (like the US app), also consider a screenshot of the print-sheet view.
-3. Re-run exports after any new screenshot lands:
+2. Since Japan supports print-layout (like the US app), consider also capturing a screenshot of the print-sheet view.
+3. Re-run exports after any future screenshot changes:
    ```bash
    cd VisaPhotoApps/Marketing/Japan/appstore && npm run export
    cd VisaPhotoApps/Marketing/Japan/xiaohongshu && npm run export
