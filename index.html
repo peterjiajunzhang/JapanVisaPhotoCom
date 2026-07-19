@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japan Visa ID Photo 1-Tap — 45×45mm print photo, one tap, on-device</title>
-    <meta name="description" content="Turn any portrait into a Japan visa-style print photo: automatic background removal, 45×45mm print layout, and on-device privacy. For iPhone. Always confirm the exact size with your consulate before printing.">
+    <title>Japan Visa ID Photo 1-Tap — 35×45mm or 2×2in, on-device</title>
+    <meta name="description" content="Turn any portrait into a Japan visa photo: automatic background removal, a choice of 35×45mm or U.S. passport 2×2in, and on-device privacy. For iPhone. Confirm the size with your consulate before applying.">
     <link rel="canonical" href="https://japan.visaphoto1tap.com/">
     <link rel="icon" type="image/png" href="AppIcon.png">
     <link rel="apple-touch-icon" href="AppIcon.png">
     <meta name="theme-color" content="#bc002d">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://japan.visaphoto1tap.com/">
-    <meta property="og:title" content="Japan Visa ID Photo 1-Tap — 45×45mm print photo, one tap, on-device">
-    <meta property="og:description" content="Turn any portrait into a Japan visa-style print photo: automatic background removal, 45×45mm print layout, and on-device privacy. For iPhone. Always confirm the exact size with your consulate before printing.">
+    <meta property="og:title" content="Japan Visa ID Photo 1-Tap — 35×45mm or 2×2in, on-device">
+    <meta property="og:description" content="Turn any portrait into a Japan visa photo: automatic background removal, a choice of 35×45mm or U.S. passport 2×2in, and on-device privacy. For iPhone. Confirm the size with your consulate before applying.">
     <meta property="og:image" content="https://japan.visaphoto1tap.com/AppIcon.png">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="1024">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Japan Visa ID Photo 1-Tap — 45×45mm print photo, one tap, on-device">
-    <meta name="twitter:description" content="Turn any portrait into a Japan visa-style print photo: automatic background removal, 45×45mm print layout, and on-device privacy. For iPhone. Always confirm the exact size with your consulate before printing.">
+    <meta name="twitter:title" content="Japan Visa ID Photo 1-Tap — 35×45mm or 2×2in, on-device">
+    <meta name="twitter:description" content="Turn any portrait into a Japan visa photo: automatic background removal, a choice of 35×45mm or U.S. passport 2×2in, and on-device privacy. For iPhone. Confirm the size with your consulate before applying.">
     <meta name="twitter:image" content="https://japan.visaphoto1tap.com/AppIcon.png">
     <script type="application/ld+json">
 {
@@ -27,7 +27,7 @@
   "name": "Japan Visa ID Photo 1-Tap",
   "url": "https://japan.visaphoto1tap.com/",
   "image": "https://japan.visaphoto1tap.com/AppIcon.png",
-  "description": "Turn any portrait into a Japan visa-style print photo: automatic background removal, 45×45mm print layout, and on-device privacy. For iPhone. Always confirm the exact size with your consulate before printing.",
+  "description": "Turn any portrait into a Japan visa photo: automatic background removal, a choice of 35×45mm or U.S. passport 2×2in, and on-device privacy. For iPhone. Confirm the size with your consulate before applying.",
   "operatingSystem": "iOS 17.0 or later",
   "applicationCategory": "PhotographyApplication",
   "offers": {
@@ -90,7 +90,7 @@
         .demo-film-original-wrap { width: min(200px, 52vw); border-radius: 22px; overflow: hidden; background: linear-gradient(165deg, #2c2c2e 0%, #1c1c1e 40%, #000 100%); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.06); padding: 4px; }
         .demo-film-thumb-original { width: 100%; height: auto; max-height: min(340px, 58vh); display: block; object-fit: contain; object-position: center center; border-radius: 18px; background: #000; }
         .demo-film-label { margin-top: 8px; font-size: 12px; font-weight: 700; color: rgba(15, 23, 42, 0.55); }
-        /* Hero before -> after visual: two matching device screens, same treatment */
+        /* Hero before -> after visual: real device screens, same treatment */
         .hero-visual {
             display: flex;
             align-items: center;
@@ -128,6 +128,58 @@
             border-radius: 26px;
             background: #fff;
         }
+        /* Hero flow: one original, then two selectable result sizes as a single group. */
+        .hero-visual--sizes { gap: clamp(12px, 1.5vw, 22px); }
+        .hero-visual--sizes > .hero-before .hero-phone { width: clamp(125px, 13vw, 160px); }
+        .hero-results {
+            position: relative;
+            width: clamp(230px, 24vw, 310px);
+            height: clamp(285px, 34vw, 390px);
+            flex: 0 0 auto;
+        }
+        .hero-results .hero-after { position: absolute; }
+        .hero-results .hero-after--square { left: 0; top: 0; z-index: 2; }
+        .hero-results .hero-after--portrait { right: 0; bottom: 0; z-index: 1; }
+        .hero-results .hero-phone { width: clamp(128px, 15vw, 170px); }
+        .hero-results .hero-after--portrait .hero-phone {
+            width: clamp(118px, 13.5vw, 154px);
+            opacity: 0.97;
+        }
+        .hero-size-label {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            bottom: -12px;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 999px;
+            background: rgba(10, 22, 40, 0.9);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1;
+            padding: 6px 9px;
+        }
+        .hero-results-note {
+            position: absolute;
+            right: 0;
+            top: -26px;
+            color: rgba(255, 255, 255, 0.64);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        @media (max-width: 767px) {
+            .hero-visual--sizes { gap: 10px; margin-top: 8px; }
+            .hero-visual--sizes > .hero-before .hero-phone { width: clamp(104px, 30vw, 150px); }
+            .hero-results { width: clamp(205px, 56vw, 290px); height: clamp(252px, 66vw, 355px); }
+            .hero-results .hero-phone { width: clamp(107px, 29vw, 155px); }
+            .hero-results .hero-after--portrait .hero-phone { width: clamp(96px, 26vw, 140px); }
+            .hero-results-note { display: none; }
+        }
         /* Before/After pills */
         .hero-pill {
             position: absolute;
@@ -155,6 +207,10 @@
         .demo-wall-row::-webkit-scrollbar { height: 8px; }
         .demo-wall-row::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.16); border-radius: 999px; }
         .demo-wall-item { flex: 0 0 auto; scroll-snap-align: start; width: min(220px, 56vw); }
+        .size-proof-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 32px); max-width: 760px; margin: 0 auto; }
+        .size-proof-card { border: 1px solid #e5e7eb; border-radius: 1.5rem; padding: clamp(12px, 2vw, 20px); background: #fff; box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.38); }
+        .size-proof-card img { width: 100%; display: block; border-radius: 1rem; border: 1px solid rgba(15, 23, 42, 0.08); }
+        @media (max-width: 540px) { .size-proof-grid { grid-template-columns: 1fr; max-width: 290px; } }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
@@ -167,7 +223,7 @@
             </div>
             <div class="flex items-center gap-6 text-sm">
                 <a href="#demos" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Demos</a>
-                <a href="#app" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Screenshots</a>
+                <a href="#app" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Inside the app</a>
                 <a href="#features" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Features</a>
                 <a href="#compliance-checklist" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">What we check</a>
                 <a href="#languages" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Languages</a>
@@ -228,19 +284,19 @@
                     <span class="text-gray-200">100% on-device — auto cutout &amp; export on your iPhone</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
+                <h1 class="text-4xl sm:text-5xl md:text-5xl font-bold tracking-tight leading-tight mb-5">
                     <span class="text-white">One-Tap</span><br>
                     <span class="text-brand">Japan Visa Photos</span><br>
-                    <span class="text-gray-200 text-3xl sm:text-4xl md:text-5xl font-semibold">Print-ready in seconds.</span>
+                    <span class="text-gray-200 text-3xl sm:text-4xl md:text-4xl font-semibold">Choose your consulate's size.</span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-gray-300 max-w-xl mx-auto mb-10 leading-relaxed">
-                    Built for Japan's <strong class="text-white">paper visa application</strong> photo — automatic background removal, a 45×45mm print layout, and a checklist before you print or upload.
+                <p class="text-base md:text-lg text-gray-300 max-w-xl mx-auto mb-7 leading-relaxed">
+                    Built for Japan visa photos — automatic background removal and a live checklist before you export.
                 </p>
 
-                <div class="inline-flex items-start gap-2 bg-amber-400/10 border border-amber-400/25 backdrop-blur rounded-2xl px-4 py-3 text-sm text-left max-w-xl mx-auto mb-8">
+                <div class="inline-flex items-start gap-2 bg-amber-400/10 border border-amber-400/25 backdrop-blur rounded-2xl px-4 py-3 text-xs md:text-sm text-left max-w-xl mx-auto mb-7">
                     <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5"></i>
-                    <span class="text-amber-100">Photo size requirements vary by consulate. This app targets the commonly cited <strong>45×45mm</strong> size — <strong>always confirm with the specific consulate or visa center</strong> you're applying through before printing.</span>
+                    <span class="text-amber-100">Photo size requirements vary by consulate. Choose <strong>35×45mm</strong> or <strong>U.S. passport 2×2in</strong> in the app — <strong>always confirm with your specific consulate or visa center</strong> before applying.</span>
                 </div>
 
                 <div id="download" class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -253,8 +309,8 @@
                 <p class="text-gray-500 text-sm mt-1">$1.99 per photo &middot; no subscription &middot; free unlimited retries</p>
                 </div>
 
-                <!-- Product visual: two matching real app screens, same person -->
-                <div class="hero-visual">
+                <!-- Product visual: original plus two selectable result sizes -->
+                <div class="hero-visual hero-visual--sizes" aria-label="Original photo transformed into one selected visa photo size">
                     <!-- Before: the app's own "Original" screen, full raw device screenshot -->
                     <figure class="hero-before">
                         <div class="hero-phone">
@@ -267,12 +323,23 @@
                         <i data-lucide="arrow-right"></i>
                     </div>
 
-                    <!-- After: the same person, in the app — background removed, cropped, auto-checked -->
-                    <figure class="hero-after">
-                        <div class="hero-phone">
-                            <img src="appstore/after-result.png" width="1170" height="2532" decoding="async" alt="The same photo in the Japan Visa ID Photo 1-Tap app: background removed, cropped, compliance checklist passed, marked Ready to use">
-                        </div>
-                    </figure>
+                    <!-- Select one result size per export. Both screens use the same person. -->
+                    <div class="hero-results">
+                        <span class="hero-results-note">Real app results</span>
+                        <figure class="hero-after hero-after--square">
+                            <div class="hero-phone">
+                                <img src="appstore/after-result.png" width="1170" height="2532" decoding="async" alt="The same photo in the Japan Visa ID Photo 1-Tap app: background removed, cropped, compliance checklist passed, marked Ready to use">
+                            </div>
+                            <figcaption class="hero-size-label">U.S. passport 2×2in</figcaption>
+                        </figure>
+
+                        <figure class="hero-after hero-after--portrait">
+                            <div class="hero-phone">
+                                <img src="appstore/after-result-35x45.png" width="1170" height="2532" decoding="async" alt="The same young woman in the Japan Visa ID Photo 1-Tap app with the 35 by 45 millimetre size selected and the checklist marked Ready to use">
+                            </div>
+                            <figcaption class="hero-size-label">35×45mm</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
         </div>
@@ -281,7 +348,7 @@
     <section class="bg-gray-50 border-b border-gray-100">
         <div class="max-w-4xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-gray-500">
             <div class="flex items-center gap-2"><i data-lucide="scissors" class="w-4 h-4 text-brand"></i><span>Automatic background removal</span></div>
-            <div class="flex items-center gap-2"><i data-lucide="printer" class="w-4 h-4 text-brand"></i><span>Print-ready layout, home or kiosk</span></div>
+            <div class="flex items-center gap-2"><i data-lucide="ruler" class="w-4 h-4 text-brand"></i><span>35×45mm or U.S. passport 2×2in</span></div>
             <div class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-brand"></i><span>Apple Vision on-device</span></div>
             <div class="flex items-center gap-2"><i data-lucide="eye-off" class="w-4 h-4 text-brand"></i><span>No photo uploads to us</span></div>
         </div>
@@ -290,97 +357,59 @@
     <section id="demos" class="py-20 md:py-28 scroll-mt-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
-                <p class="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">Real exports</p>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Any background in.<br><span class="text-brand">Print-ready visa photo</span> out.</h2>
-                <p class="text-gray-500 text-lg max-w-3xl mx-auto">Real examples: kitchen, garden, hallway, street, living room, home — then clean cutouts on white, cropped to <strong class="text-gray-700">45×45mm</strong> proportions.</p>
-            </div>
-
-            <div class="demo-wall-row" aria-label="Result photo row">
-                <figure class="demo-wall-item"><img src="demos/demo-01-result.jpg" alt="Japan visa photo export example 1" class="demo-wall-img" width="600" height="600" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-02-result.jpg" alt="Japan visa photo export example 2" class="demo-wall-img" width="600" height="600" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-03-result.jpg" alt="Japan visa photo export example 3" class="demo-wall-img" width="600" height="600" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-04-result.jpg" alt="Japan visa photo export example 4" class="demo-wall-img" width="600" height="600" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-05-result.jpg" alt="Japan visa photo export example 5" class="demo-wall-img" width="600" height="600" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-06-result.jpg" alt="Japan visa photo export example 6" class="demo-wall-img" width="600" height="600" decoding="async"></figure>
+                <p class="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">Real before &amp; after</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Any background in.<br><span class="text-brand">Japan visa photo out.</span></h2>
+                <p class="text-gray-500 text-lg max-w-3xl mx-auto">Real outputs with clean white backgrounds. Choose one size per export: <strong class="text-gray-700">U.S. passport 2×2in</strong> square or <strong class="text-gray-700">35×45mm</strong> portrait. Scroll the originals below — full aspect, no crop.</p>
             </div>
 
             <div class="mt-10 max-w-6xl mx-auto">
-                <div class="flex items-center justify-between gap-4 mb-3">
-                    <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Originals (before) · full aspect, Photos-style</p>
-                    <p class="text-xs text-gray-400 hidden sm:block">Scroll &rarr;</p>
+                <div class="flex items-center justify-between gap-4 mb-3"><p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Finished results · U.S. passport 2×2in square</p><p class="text-xs text-gray-400 hidden sm:block">Scroll &rarr;</p></div>
+                <div class="demo-wall-row" aria-label="Six square U.S. passport two by two inch results">
+                    <figure class="demo-wall-item"><img src="demos/young-woman-us2x2.jpg" alt="Square two by two inch result for young woman with a ponytail" class="demo-wall-img" width="600" height="600" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-square-man-glasses.jpg" alt="Square two by two inch result for man with glasses" class="demo-wall-img" width="600" height="600" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-square-older-woman.jpg" alt="Square two by two inch result for older woman" class="demo-wall-img" width="600" height="600" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-square-man-denim.jpg" alt="Square two by two inch result for man in denim" class="demo-wall-img" width="600" height="600" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-square-woman-curly.jpg" alt="Square two by two inch result for woman with curly hair" class="demo-wall-img" width="600" height="600" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-square-woman.jpg" alt="Square two by two inch result for woman" class="demo-wall-img" width="600" height="600" loading="lazy" decoding="async"></figure>
                 </div>
-                <div class="demo-film" aria-label="Original photo strip">
-                    <div class="demo-film-item--original">
-                        <div class="demo-film-original-wrap"><img src="demos/demo-01-original.jpg" alt="Original 1" class="demo-film-thumb-original" decoding="async"></div>
-                        <div class="demo-film-label">Home portrait</div>
-                    </div>
-                    <div class="demo-film-item--original">
-                        <div class="demo-film-original-wrap"><img src="demos/demo-02-original.jpg" alt="Original 2" class="demo-film-thumb-original" decoding="async"></div>
-                        <div class="demo-film-label">Kitchen</div>
-                    </div>
-                    <div class="demo-film-item--original">
-                        <div class="demo-film-original-wrap"><img src="demos/demo-03-original.jpg" alt="Original 3" class="demo-film-thumb-original" decoding="async"></div>
-                        <div class="demo-film-label">Garden</div>
-                    </div>
-                    <div class="demo-film-item--original">
-                        <div class="demo-film-original-wrap"><img src="demos/demo-04-original.jpg" alt="Original 4" class="demo-film-thumb-original" decoding="async"></div>
-                        <div class="demo-film-label">Balcony hallway</div>
-                    </div>
-                    <div class="demo-film-item--original">
-                        <div class="demo-film-original-wrap"><img src="demos/demo-05-original.jpg" alt="Original 5" class="demo-film-thumb-original" decoding="async"></div>
-                        <div class="demo-film-label">Street</div>
-                    </div>
-                    <div class="demo-film-item--original">
-                        <div class="demo-film-original-wrap"><img src="demos/demo-06-original.jpg" alt="Original 6" class="demo-film-thumb-original" decoding="async"></div>
-                        <div class="demo-film-label">Living room</div>
-                    </div>
+            </div>
+
+            <div class="mt-10 max-w-6xl mx-auto">
+                <div class="flex items-center justify-between gap-4 mb-3"><p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Finished results · 35×45mm portrait</p><p class="text-xs text-gray-400 hidden sm:block">Scroll &rarr;</p></div>
+                <div class="demo-wall-row" aria-label="Six portrait 35 by 45 millimetre results">
+                    <figure class="demo-wall-item"><img src="demos/after-portrait-young-woman.jpg" alt="Portrait 35 by 45 millimetre result for young woman with a ponytail" class="demo-wall-img" width="420" height="540" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-portrait-man-glasses.jpg" alt="Portrait 35 by 45 millimetre result for man with glasses" class="demo-wall-img" width="420" height="540" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-portrait-older-woman.jpg" alt="Portrait 35 by 45 millimetre result for older woman" class="demo-wall-img" width="420" height="540" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-portrait-man-denim.jpg" alt="Portrait 35 by 45 millimetre result for man in denim" class="demo-wall-img" width="420" height="540" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-portrait-woman-curly.jpg" alt="Portrait 35 by 45 millimetre result for woman with curly hair" class="demo-wall-img" width="420" height="540" loading="lazy" decoding="async"></figure>
+                    <figure class="demo-wall-item"><img src="demos/after-portrait-woman.jpg" alt="Portrait 35 by 45 millimetre result for woman" class="demo-wall-img" width="420" height="540" loading="lazy" decoding="async"></figure>
+                </div>
+            </div>
+
+            <div class="mt-10 max-w-6xl mx-auto">
+                <div class="flex items-center justify-between gap-4 mb-3"><p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Originals (before) · full aspect</p><p class="text-xs text-gray-400 hidden sm:block">Scroll &rarr;</p></div>
+                <div class="demo-film" aria-label="Original photo film strip">
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/young-woman-original.jpg" alt="Young woman with a ponytail before processing" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Home portrait</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-02-original.jpg" alt="Original 2" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Kitchen</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-03-original.jpg" alt="Original 3" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Garden</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-04-original.jpg" alt="Original 4" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Balcony hallway</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-05-original.jpg" alt="Original 5" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Street</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-06-original.jpg" alt="Original 6" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Living room</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="app" class="py-4 md:py-8 pb-20 md:pb-28 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-14">
-                <p class="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">In the app</p>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Pick a photo.<br><span class="text-brand">Print-ready in one tap.</span></h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Fresh iPhone screenshots: home, live checklist, unlock, your on-device Saved Photos library, and the language switcher.</p>
+    <section id="app" class="py-16 md:py-24 bg-gray-50 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">Inside the app</p>
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 mb-3">A closer look inside the app.</h2>
+            <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-10">Real App Store screens show the export checks, your size selection, and lighting check.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 justify-items-center max-w-4xl mx-auto">
+                <img src="appstore/inside-app-checklist.png" alt="Japan Visa Photo App Store screen showing the export checklist before unlock" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
+                <img src="appstore/inside-app-size.png" alt="Japan Visa Photo App Store screen showing selection of 35 by 45 millimetres or US passport 2 by 2 inches" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
+                <img src="appstore/inside-app-lighting.png" alt="Japan Visa Photo App Store screen showing the lighting check before export" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-items-center">
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/01-home.png" alt="Japan Visa ID Photo 1-Tap: home screen with Take Photo / Choose from Photos" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Home — Take Photo / Choose from Photos</figcaption>
-                </figure>
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/02-checklist.png" alt="Full export checklist with Japan visa measurements" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Full export checklist — canvas, eye/head %, background, JPEG size…</figcaption>
-                </figure>
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/04-paywall.png" alt="Unlock this export sheet with measurement overlay preview and $1.99 price" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Unlock — preview with live measurement overlay &amp; $1.99 price</figcaption>
-                </figure>
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/05-exported.png" alt="Unlocked portrait with Share, Rate, Review, Download and Start over" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">After export — share / rate / review • download • start over</figcaption>
-                </figure>
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/06-saved-photos.png" alt="All Saved Photos gallery grid" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Saved Photos — past exports on this iPhone</figcaption>
-                </figure>
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/07-languages.png" alt="Language switcher menu with seven languages" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">Language switcher — 7 interface languages, one tap</figcaption>
-                </figure>
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/08-dual-size.png" alt="Photo size picker: 35x45mm or US passport size 2x2in" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">New — pick 35×45mm or US passport 2×2in</figcaption>
-                </figure>
-                <figure class="w-full max-w-xs text-left">
-                    <img src="screenshots/09-lighting-check.png" alt="Facial lighting looks even, Ready to use" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="1170" height="2532" decoding="async" loading="lazy">
-                    <figcaption class="mt-3 text-xs text-gray-500 px-1">New — lighting check flags uneven light before you unlock</figcaption>
-                </figure>
-            </div>
-            <p class="text-center text-sm text-gray-400 mt-12 max-w-2xl mx-auto">Same on-device pipeline as our US, China, Schengen, India &amp; Canada apps — tuned for Japan's paper-first visa photo.</p>
         </div>
     </section>
 
@@ -393,12 +422,12 @@
             <div class="bg-amber-50 border border-amber-100 rounded-2xl p-6 md:p-8 mb-6">
                 <div class="flex items-start gap-3">
                     <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i>
-                    <p class="text-sm text-amber-900 leading-relaxed">Some consulates cite 45×45mm, others 35×45mm, and some accept the US-style 2×2in. We default to <strong>45×45mm</strong> as the most commonly cited size, but this is <strong>not universally confirmed</strong> — please check your consulate's page before printing.</p>
+                    <p class="text-sm text-amber-900 leading-relaxed">Japan visa photo requirements vary by consulate. This app offers <strong>35×45mm</strong> and <strong>U.S.-style 2×2in</strong>; select the one your consulate or visa center specifies before applying.</p>
                 </div>
             </div>
             <div class="bg-gray-50 rounded-2xl border border-gray-100 p-6 md:p-8">
                 <ul class="space-y-4 text-left text-sm md:text-base text-gray-800">
-                    <li class="compliance-row flex items-start gap-3"><i data-lucide="help-circle" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i><span><strong>Print size</strong> &mdash; defaults to <strong>45×45mm</strong> (common consulate convention) &mdash; confirm with your consulate, as some cite 35×45mm.</span></li>
+                    <li class="compliance-row flex items-start gap-3"><i data-lucide="help-circle" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i><span><strong>Photo size</strong> &mdash; choose <strong>35×45mm</strong> or <strong>U.S. passport 2×2in</strong>, then confirm the correct option with your consulate.</span></li>
                     <li class="compliance-row flex items-start gap-3"><i data-lucide="help-circle" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i><span><strong>Head height</strong> &mdash; targets roughly <strong>32–36mm</strong> (crown to chin), an ICAO-style convention cited by several sources but not independently verified.</span></li>
                     <li class="compliance-row flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i><span><strong>Plain white background</strong> &mdash; after automatic cutout, no shadows or patterns.</span></li>
                     <li class="compliance-row flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i><span><strong>Recency &amp; expression</strong> &mdash; the checklist reminds you the photo should be recent (within 6 months), neutral expression, no hat.</span></li>
@@ -413,8 +442,8 @@
     <section id="features" class="bg-gray-50 py-20 md:py-28">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Built for <span class="text-brand">Japan's paper</span> visa photo</h2>
-                <p class="text-gray-500 text-lg max-w-xl mx-auto">One tap from photo library to a print-ready portrait — sized for the consulate photo most commonly ask for.</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Built for <span class="text-brand">Japan visa</span> photos</h2>
+                <p class="text-gray-500 text-lg max-w-xl mx-auto">One tap from photo library to a white-background portrait in the size your consulate specifies.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
@@ -423,9 +452,9 @@
                     <p class="text-gray-500 leading-relaxed">Apple Vision–powered segmentation removes busy backgrounds and drops you onto a clean white plate — the universal starting point for Japan visa photos.</p>
                 </div>
                 <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
-                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="printer" class="w-6 h-6 text-brand"></i></div>
-                    <h3 class="text-lg font-semibold mb-2">Print-ready layout</h3>
-                    <p class="text-gray-500 leading-relaxed">Export a print sheet sized for home printers or a photo kiosk — same print-layout feature as our US app, tuned to the 45×45mm convention.</p>
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="ruler" class="w-6 h-6 text-brand"></i></div>
+                    <h3 class="text-lg font-semibold mb-2">Two consulate size options</h3>
+                    <p class="text-gray-500 leading-relaxed">Choose one size—35×45mm or U.S. passport 2×2in—before you process. The selected option stays visible in the live checklist.</p>
                 </div>
                 <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
                     <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="lock" class="w-6 h-6 text-brand"></i></div>
@@ -465,12 +494,12 @@
                 <div class="text-center">
                     <div class="w-14 h-14 bg-brand text-white rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
                     <h3 class="font-semibold mb-2">One-tap process</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Auto cutout to white, crop to the 45×45mm convention, then review the checklist.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Choose one size, auto cut out to white, then review the live checklist.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-14 h-14 bg-brand text-white rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
-                    <h3 class="font-semibold mb-2">Unlock &amp; print</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Single consumable purchase per export — print at home, a kiosk, or upload where accepted.</p>
+                    <h3 class="font-semibold mb-2">Unlock &amp; export</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Single consumable purchase per finished export at your selected size.</p>
                 </div>
             </div>
         </div>
@@ -490,7 +519,7 @@
                     </div>
                     <div class="mb-6"><span class="text-5xl font-bold">$1.99</span><span class="text-white/70 ml-1">/ export</span></div>
                     <ul class="space-y-3 text-sm text-white/90">
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>Print-ready sheet (45×45mm convention)</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>35×45mm or U.S. passport 2×2in</li>
                         <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>Automatic cutout + white plate</li>
                         <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>Checklist in-app</li>
                         <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>On-device processing</li>
@@ -498,7 +527,7 @@
                 </div>
                 <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-center">
                     <h3 class="font-semibold text-gray-900 mb-2">Why not a photo studio?</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Studios (証明写真機) are common in Japan and work great — this app is for when you already have a decent phone photo and want a print-ready file fast, privately, and repeatably.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Studios (証明写真機) are common in Japan and work great — this app is for when you already have a decent phone photo and want a correctly sized image fast, privately, and repeatably.</p>
                     <p class="text-xs text-gray-400">Exact storefront price may vary by region; shown in USD on the U.S. App Store.</p>
                 </div>
             </div>
