@@ -111,22 +111,18 @@
             background: #fff;
         }
         /* Hero flow: one original, then two selectable result sizes as a single group. */
-        .hero-visual--sizes { gap: clamp(12px, 1.5vw, 22px); }
-        .hero-visual--sizes > .hero-before .hero-phone { width: clamp(125px, 13vw, 160px); }
+        .hero-visual--sizes { gap: clamp(10px, 1.5vw, 18px); }
+        .hero-visual--sizes > .hero-before { width: min(29%, 160px); }
+        .hero-visual--sizes .hero-phone { width: 100%; }
         .hero-results {
             position: relative;
-            width: clamp(230px, 24vw, 310px);
-            height: clamp(285px, 34vw, 390px);
+            width: min(55%, 310px);
+            aspect-ratio: 4 / 5;
             flex: 0 0 auto;
         }
         .hero-results .hero-after { position: absolute; }
-        .hero-results .hero-after--square { left: 0; top: 0; z-index: 2; }
-        .hero-results .hero-after--portrait { right: 0; bottom: 0; z-index: 1; }
-        .hero-results .hero-phone { width: clamp(128px, 15vw, 170px); }
-        .hero-results .hero-after--portrait .hero-phone {
-            width: clamp(118px, 13.5vw, 154px);
-            opacity: 0.97;
-        }
+        .hero-results .hero-after--square { left: 0; top: 0; width: 55%; z-index: 2; }
+        .hero-results .hero-after--portrait { right: 0; bottom: 0; width: 50%; z-index: 1; opacity: 0.97; }
         .hero-size-label {
             position: absolute;
             z-index: 3;
@@ -156,10 +152,6 @@
         }
         @media (max-width: 767px) {
             .hero-visual--sizes { gap: 10px; margin-top: 8px; }
-            .hero-visual--sizes > .hero-before .hero-phone { width: clamp(104px, 30vw, 150px); }
-            .hero-results { width: clamp(205px, 56vw, 290px); height: clamp(252px, 66vw, 355px); }
-            .hero-results .hero-phone { width: clamp(107px, 29vw, 155px); }
-            .hero-results .hero-after--portrait .hero-phone { width: clamp(96px, 26vw, 140px); }
             .hero-results-note { display: none; }
         }
         /* Before/After pills */
@@ -253,7 +245,7 @@
 
     <section class="gradient-hero text-white overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
-            <div class="grid md:grid-cols-2 gap-12 md:gap-8 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
                 <!-- Copy -->
                 <div class="text-center md:text-left">
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-1.5 text-sm mb-8">
